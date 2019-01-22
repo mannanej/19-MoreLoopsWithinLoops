@@ -291,9 +291,15 @@ def numbers_constant_backwards(r, maxnum, n):
        777 666 555 444 333 222 111
     Preconditions:  r, maxnum and n are positive integers.
     """
+    for k in range(r):
+        for i in range(maxnum, 0, -1):
+            for j in range(n):
+                print(i, end='')
+            print(' ', end='')
+        print()
 
     # -------------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -344,8 +350,15 @@ def numbers_increasing_forward(r, maxnum):
 
     Preconditions:  r and maxnum are positive integers.
     """
+    for k in range(r):
+        for i in range(maxnum + 1):
+            for j in range(i):
+                print(i, end='')
+            print(' ', end='')
+        print()
+
     # -------------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
