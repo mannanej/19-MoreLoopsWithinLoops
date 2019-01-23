@@ -49,6 +49,31 @@ def draw_upside_down_wall(rectangle, n, window):
       :type window: rg.RoseWindow
     and n is nonnegative.
     """
+    original_x1 = rectangle.corner_1.x
+    original_y1 = rectangle.corner_1.y
+    original_x2 = rectangle.corner_2.x
+    original_y2 = rectangle.corner_2.y
+    offsetvert = rectangle.get_height()
+    offsethor = rectangle.get_width()
+
+    x1 = original_x1
+    y1 = original_y1
+    x2 = original_x2
+    y2 = original_y2
+
+    for k in range(n):
+        for j in range(k + 1):
+            new_rect = rg.Rectangle(rg.Point(x1, y1), rg.Point(x2, y2))
+            new_rect.attach_to(window)
+            window.render()
+
+            x1 = x1 - offsethor
+            x2 = x2 + offsethor
+
+        y1 = y1 - offsetvert
+        y2 = y2 - offsetvert
+        x1 = original_x1 - (offsethor / 2)
+        x2 = original_x2 - (offsethor / 2)
 
     # -------------------------------------------------------------------------
     # TODO: 2. Implement and test this function.
