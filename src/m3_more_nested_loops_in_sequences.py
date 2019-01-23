@@ -77,15 +77,20 @@ def largest_number(seq_seq):
     and the given argument is a sequence of sequences,
     where each subsequence contains only numbers.
     """
-    total = 0
+    total = None
     for k in range(len(seq_seq)):
+        tup = seq_seq[k]
         for j in range(len(seq_seq[k])):
-            if seq_seq[j] > total:
-                total = seq_seq[j]
+            if total is None:
+                total = 0
+            if tup[j] > total:
+                total = tup[j]
+            elif tup[j] < 0:
+                return tup[j]
     return total
 
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
 
@@ -106,7 +111,7 @@ def run_test_largest_negative_number():
 
     # Test 1:
     expected = -2.6
-    answer = largest_negative_number[(30, -5, 8, -20), (100, -2.6, 88, -40, -5), (400, 500)]
+    answer = largest_negative_number([(30, -5, 8, -20), (100, -2.6, 88, -40, -5), (400, 500)])
     print('Expected and actual are:', expected, answer)
 
 
@@ -132,8 +137,18 @@ def largest_negative_number(seq_seq):
     and the given argument is a sequence of sequences,
     where each subsequence contains only numbers.
     """
+    total = None
+    for k in range(len(seq_seq)):
+        tup = seq_seq[k]
+        for j in range(len(seq_seq[k])):
+            if tup[j] < 0:
+                if total is None:
+                    total = tup[j]
+                if tup[j] > total:
+                    total = tup[j]
+    return total
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # CHALLENGE: Try to solve this problem with no additional sequences
@@ -372,6 +387,11 @@ def first_is_elsewhere_too(seq_seq):
       :type seq_seq: (list, tuple)
     and the given argument is a sequence of sequences.
     """
+    for k in range(len(seq_seq)):
+        tup = seq_seq[k]
+        single = tup[k]
+        for j in range(len(tup)):
+            for i in range(len())
     # -------------------------------------------------------------------------
     # TODO: 6. Implement and test this function.
     #          Some tests are already written for you (above).
