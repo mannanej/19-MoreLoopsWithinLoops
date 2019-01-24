@@ -66,17 +66,21 @@ def draw_upside_down_wall(rectangle, n, window):
             new_rect = rg.Rectangle(rg.Point(x1, y1), rg.Point(x2, y2))
             new_rect.attach_to(window)
             window.render()
-
-            x1 = x1 - offsethor
-            x2 = x2 + offsethor
-
+            if j % 2 == 1:
+                x2 = x2 + offsethor
+            else:
+                x1 = x1 - offsethor
         y1 = y1 - offsetvert
         y2 = y2 - offsetvert
-        x1 = original_x1 + (offsethor / 2)
-        x2 = original_x2 - (offsethor / 2)
+        if k % 2 == 0:
+            x1 = original_x1 + (offsethor / 2)
+            x2 = original_x2 + (offsethor / 2)
+        else:
+            x1 = original_x1
+            x2 = original_x2
 
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     Some tests are already written for you (above).
     # -------------------------------------------------------------------------
 
