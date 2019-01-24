@@ -47,8 +47,8 @@ def run_test_largest_number():
     # DONE 2 (continued): Add your ADDITIONAL test(s) here:
 
     # Test 4:
-    expected = -1111111111111111
-    answer = largest_number(([], [-1111111111111111], []))
+    expected = 17
+    answer = largest_number(([16], [17], [2]))
     print('Expected and actual are:', expected, answer)
 
 
@@ -387,13 +387,16 @@ def first_is_elsewhere_too(seq_seq):
       :type seq_seq: (list, tuple)
     and the given argument is a sequence of sequences.
     """
-    for k in range(len(seq_seq)):
-        tup = seq_seq[k]
-        single = tup[k]
-        for j in range(len(tup)):
-            for i in range(len())
+    for k in range(1, len(seq_seq)):
+        list1 = seq_seq[0]
+        for j in range(len(seq_seq[k])):
+            for t in range(len(list1)):
+                if list1[t] == seq_seq[k][j]:
+                    return True
+    return False
+
     # -------------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:

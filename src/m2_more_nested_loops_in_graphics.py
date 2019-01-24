@@ -72,7 +72,7 @@ def draw_upside_down_wall(rectangle, n, window):
 
         y1 = y1 - offsetvert
         y2 = y2 - offsetvert
-        x1 = original_x1 - (offsethor / 2)
+        x1 = original_x1 + (offsethor / 2)
         x2 = original_x2 - (offsethor / 2)
 
     # -------------------------------------------------------------------------
